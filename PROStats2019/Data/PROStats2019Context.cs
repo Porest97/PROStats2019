@@ -44,5 +44,7 @@ namespace PROStats2019.Models
         public DbSet<HockeyStats2019.Models.Person> Person { get; set; }
 
         public DbSet<PROStats2019.Models.Club> Club { get; set; }
+
+        public DbSet<PROStats2019.Models.ProGame> ProGame { get; set; }
     }
 }
