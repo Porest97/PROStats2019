@@ -1,0 +1,77 @@
+﻿@model IEnumerable<LcvDB.Models.Company>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyStreetAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyWebSite)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyCounty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyCountry)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyContact.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyStreetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyWebSite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyCounty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyCountry)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
