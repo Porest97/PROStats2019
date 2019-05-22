@@ -1,0 +1,165 @@
+﻿@model PROStats2019.Models.PaymentPost
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PaymentPost</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="GameId" class="control-label"></label>
+                <select asp-for="GameId" class ="form-control" asp-items="ViewBag.GameId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId" class="control-label"></label>
+                <select asp-for="PersonId" class ="form-control" asp-items="ViewBag.PersonId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId1" class="control-label"></label>
+                <select asp-for="PersonId1" class ="form-control" asp-items="ViewBag.PersonId1"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId2" class="control-label"></label>
+                <select asp-for="PersonId2" class ="form-control" asp-items="ViewBag.PersonId2"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonId3" class="control-label"></label>
+                <select asp-for="PersonId3" class ="form-control" asp-items="ViewBag.PersonId3"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeeHD1" class="control-label"></label>
+                <input asp-for="FeeHD1" class="form-control" />
+                <span asp-validation-for="FeeHD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlowenceHD1" class="control-label"></label>
+                <input asp-for="AlowenceHD1" class="form-control" />
+                <span asp-validation-for="AlowenceHD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelDistanceHD1" class="control-label"></label>
+                <input asp-for="TravelDistanceHD1" class="form-control" />
+                <span asp-validation-for="TravelDistanceHD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCostHD1" class="control-label"></label>
+                <input asp-for="TravelCostHD1" class="form-control" />
+                <span asp-validation-for="TravelCostHD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LateMatchStartHD1" class="control-label"></label>
+                <input asp-for="LateMatchStartHD1" class="form-control" />
+                <span asp-validation-for="LateMatchStartHD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPaymentHD1" class="control-label"></label>
+                <input asp-for="TotalPaymentHD1" class="form-control" />
+                <span asp-validation-for="TotalPaymentHD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeeHD2" class="control-label"></label>
+                <input asp-for="FeeHD2" class="form-control" />
+                <span asp-validation-for="FeeHD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlowenceHD2" class="control-label"></label>
+                <input asp-for="AlowenceHD2" class="form-control" />
+                <span asp-validation-for="AlowenceHD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelDistanceHD2" class="control-label"></label>
+                <input asp-for="TravelDistanceHD2" class="form-control" />
+                <span asp-validation-for="TravelDistanceHD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCostHD2" class="control-label"></label>
+                <input asp-for="TravelCostHD2" class="form-control" />
+                <span asp-validation-for="TravelCostHD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LateMatchStartHD2" class="control-label"></label>
+                <input asp-for="LateMatchStartHD2" class="form-control" />
+                <span asp-validation-for="LateMatchStartHD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPaymentHD2" class="control-label"></label>
+                <input asp-for="TotalPaymentHD2" class="form-control" />
+                <span asp-validation-for="TotalPaymentHD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeeLD1" class="control-label"></label>
+                <input asp-for="FeeLD1" class="form-control" />
+                <span asp-validation-for="FeeLD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlowenceLD1" class="control-label"></label>
+                <input asp-for="AlowenceLD1" class="form-control" />
+                <span asp-validation-for="AlowenceLD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelDistanceLD1" class="control-label"></label>
+                <input asp-for="TravelDistanceLD1" class="form-control" />
+                <span asp-validation-for="TravelDistanceLD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCostLD1" class="control-label"></label>
+                <input asp-for="TravelCostLD1" class="form-control" />
+                <span asp-validation-for="TravelCostLD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LateMatchStartLD1" class="control-label"></label>
+                <input asp-for="LateMatchStartLD1" class="form-control" />
+                <span asp-validation-for="LateMatchStartLD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPaymentLD1" class="control-label"></label>
+                <input asp-for="TotalPaymentLD1" class="form-control" />
+                <span asp-validation-for="TotalPaymentLD1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeeLD2" class="control-label"></label>
+                <input asp-for="FeeLD2" class="form-control" />
+                <span asp-validation-for="FeeLD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlowenceLD2" class="control-label"></label>
+                <input asp-for="AlowenceLD2" class="form-control" />
+                <span asp-validation-for="AlowenceLD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelDistanceLD2" class="control-label"></label>
+                <input asp-for="TravelDistanceLD2" class="form-control" />
+                <span asp-validation-for="TravelDistanceLD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TravelCostLD2" class="control-label"></label>
+                <input asp-for="TravelCostLD2" class="form-control" />
+                <span asp-validation-for="TravelCostLD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LateMatchStartLD2" class="control-label"></label>
+                <input asp-for="LateMatchStartLD2" class="form-control" />
+                <span asp-validation-for="LateMatchStartLD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalPaymentLD2" class="control-label"></label>
+                <input asp-for="TotalPaymentLD2" class="form-control" />
+                <span asp-validation-for="TotalPaymentLD2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

@@ -19,6 +19,22 @@ namespace PROStats2019.Controllers
         {
             return View();
         }
+        public IActionResult Admin()
+        {
+            return View();
+        }
+        public IActionResult Referee()
+        {
+            return View();
+        }
+        public IActionResult Games()
+        {
+            return View();
+        }
+        public IActionResult Payments()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

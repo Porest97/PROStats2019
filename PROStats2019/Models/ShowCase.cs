@@ -37,9 +37,9 @@ namespace HockeyStats2019.Models
         public Series AgeCategory { get; set; }
 
         //Location
-        [Display(Name = "Plats")]
+        [Display(Name = "Plats")]        
         public int? ArenaId1 { get; set; }
-        [ForeignKey("ArenaId1")]
+        [ForeignKey("ArenaId1")]        
         public Arena Location { get; set; }
 
 

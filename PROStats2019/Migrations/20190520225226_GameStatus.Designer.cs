@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROStats2019.Models;
 
 namespace PROStats2019.Migrations
 {
     [DbContext(typeof(PROStats2019Context))]
-    partial class PROStats2019ContextModelSnapshot : ModelSnapshot
+    [Migration("20190520225226_GameStatus")]
+    partial class GameStatus
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -401,85 +403,6 @@ namespace PROStats2019.Migrations
                     b.ToTable("GameStatus");
                 });
 
-            modelBuilder.Entity("PROStats2019.Models.PaymentPost", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double?>("AlowenceHD1");
-
-                    b.Property<double?>("AlowenceHD2");
-
-                    b.Property<double?>("AlowenceLD1");
-
-                    b.Property<double?>("AlowenceLD2");
-
-                    b.Property<double?>("FeeHD1");
-
-                    b.Property<double?>("FeeHD2");
-
-                    b.Property<double?>("FeeLD1");
-
-                    b.Property<double?>("FeeLD2");
-
-                    b.Property<int?>("GameId");
-
-                    b.Property<double?>("LateMatchStartHD1");
-
-                    b.Property<double?>("LateMatchStartHD2");
-
-                    b.Property<double?>("LateMatchStartLD1");
-
-                    b.Property<double?>("LateMatchStartLD2");
-
-                    b.Property<int?>("PersonId");
-
-                    b.Property<int?>("PersonId1");
-
-                    b.Property<int?>("PersonId2");
-
-                    b.Property<int?>("PersonId3");
-
-                    b.Property<double?>("TotalPaymentHD1");
-
-                    b.Property<double?>("TotalPaymentHD2");
-
-                    b.Property<double?>("TotalPaymentLD1");
-
-                    b.Property<double?>("TotalPaymentLD2");
-
-                    b.Property<double?>("TravelCostHD1");
-
-                    b.Property<double?>("TravelCostHD2");
-
-                    b.Property<double?>("TravelCostLD1");
-
-                    b.Property<double?>("TravelCostLD2");
-
-                    b.Property<double?>("TravelDistanceHD1");
-
-                    b.Property<double?>("TravelDistanceHD2");
-
-                    b.Property<double?>("TravelDistanceLD1");
-
-                    b.Property<double?>("TravelDistanceLD2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GameId");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasIndex("PersonId1");
-
-                    b.HasIndex("PersonId2");
-
-                    b.HasIndex("PersonId3");
-
-                    b.ToTable("PaymentPost");
-                });
-
             modelBuilder.Entity("PROStats2019.Models.ProGame", b =>
                 {
                     b.Property<int>("Id")
@@ -675,29 +598,6 @@ namespace PROStats2019.Migrations
                     b.HasOne("HockeyStats2019.Models.Person", "AssCoach1")
                         .WithMany()
                         .HasForeignKey("PersonId2");
-                });
-
-            modelBuilder.Entity("PROStats2019.Models.PaymentPost", b =>
-                {
-                    b.HasOne("HockeyStats2019.Models.Game", "Game")
-                        .WithMany()
-                        .HasForeignKey("GameId");
-
-                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
-                        .WithMany()
-                        .HasForeignKey("PersonId");
-
-                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
-                        .WithMany()
-                        .HasForeignKey("PersonId1");
-
-                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
-                        .WithMany()
-                        .HasForeignKey("PersonId2");
-
-                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
-                        .WithMany()
-                        .HasForeignKey("PersonId3");
                 });
 
             modelBuilder.Entity("PROStats2019.Models.ProGame", b =>

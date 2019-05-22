@@ -43,6 +43,8 @@ namespace HockeyStats2019.Models
         [Display(Name = "Resultat")]
         public string Result { get { return string.Format("{0} {1} {2}", HomeTeamScore, " - ", AwayTeamScore); } }
 
+        
+        public string GameName { get { return string.Format("{0} {1} {2} {3}",MatchDateTime, TeamId," - ",TeamId1); } }
 
         [Display(Name = "HD")]
         public int? PersonId { get; set; }

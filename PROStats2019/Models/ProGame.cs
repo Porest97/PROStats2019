@@ -88,7 +88,14 @@ namespace PROStats2019.Models
         [DataType(DataType.Currency)]
         public int? Payment { get; set; }
 
-        [Display(Name = "Betald ?")]
+        [Display(Name = "Betald")]
         public bool Payed { get; set; } = false;
+
+        [Display(Name = "Status")]
+        public int? GameStatusId { get; set; }
+        [Display(Name = "Status")]
+        [ForeignKey("GameStatusId")]
+        public GameStatus GameStatus { get; set; }
+
     }
 }

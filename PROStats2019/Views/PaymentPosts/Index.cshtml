@@ -1,0 +1,203 @@
+﻿@model IEnumerable<PROStats2019.Models.PaymentPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Game)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Referee4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeHD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlowenceHD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelDistanceHD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelCostHD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateMatchStartHD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPaymentHD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeHD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlowenceHD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelDistanceHD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelCostHD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateMatchStartHD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPaymentHD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeLD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlowenceLD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelDistanceLD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelCostLD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateMatchStartLD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPaymentLD1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FeeLD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AlowenceLD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelDistanceLD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TravelCostLD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LateMatchStartLD2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPaymentLD2)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Game.GameName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee1.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee2.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee3.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee4.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeHD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlowenceHD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDistanceHD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelCostHD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LateMatchStartHD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPaymentHD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeHD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlowenceHD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDistanceHD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelCostHD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LateMatchStartHD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPaymentHD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeLD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlowenceLD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDistanceLD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelCostLD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LateMatchStartLD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPaymentLD1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeLD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlowenceLD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelDistanceLD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TravelCostLD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LateMatchStartLD2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalPaymentLD2)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

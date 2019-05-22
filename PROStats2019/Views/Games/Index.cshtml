@@ -28,11 +28,9 @@
                 @Html.DisplayNameFor(model => model.AwayTeam)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.HomeTeamScore)
+                @Html.DisplayNameFor(model => model.Result)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AwayTeamScore)
-            </th>
+            
             <th>
                 @Html.DisplayNameFor(model => model.Referee1)
             </th>
@@ -67,37 +65,35 @@
                 @Html.DisplayFor(modelItem => item.MatchDateTime)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Arena.Id)
+                @Html.DisplayFor(modelItem => item.Arena.ArenaName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HomeTeam.Id)
+                @Html.DisplayFor(modelItem => item.HomeTeam.TeamName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AwayTeam.Id)
+                @Html.DisplayFor(modelItem => item.AwayTeam.TeamName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.HomeTeamScore)
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Referee1.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AwayTeamScore)
+                @Html.DisplayFor(modelItem => item.Referee2.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Referee1.Id)
+                @Html.DisplayFor(modelItem => item.Referee3.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Referee2.Id)
+                @Html.DisplayFor(modelItem => item.Referee4.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Referee3.Id)
+                @Html.DisplayFor(modelItem => item.Referee5.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Referee4.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Referee5.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Series.Id)
+                @Html.DisplayFor(modelItem => item.Series.SeriesName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TSMNumber)

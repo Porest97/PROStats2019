@@ -64,31 +64,31 @@
                 @Html.DisplayFor(modelItem => item.ShowCaseName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Arena.Id)
+                @Html.DisplayFor(modelItem => item.Arena.ArenaName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.AgeCategory.Id)
+                @Html.DisplayFor(modelItem => item.AgeCategory.SeriesName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Location.Id)
+                @Html.DisplayFor(modelItem => item.Location.LocationString)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Coach.Id)
+                @Html.DisplayFor(modelItem => item.Coach.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Coach1.Id)
+                @Html.DisplayFor(modelItem => item.Coach1.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Coach2.Id)
+                @Html.DisplayFor(modelItem => item.Coach2.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Coach3.Id)
+                @Html.DisplayFor(modelItem => item.Coach3.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Referee.Id)
+                @Html.DisplayFor(modelItem => item.Referee.FullName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.GeneralManager.Id)
+                @Html.DisplayFor(modelItem => item.GeneralManager.FullName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -21,7 +21,7 @@ namespace PROStats2019.Controllers
         // GET: ProGames
         public async Task<IActionResult> Index()
         {
-            var pROStats2019Context = _context.ProGame.Include(p => p.Arena).Include(p => p.AwayTeam).Include(p => p.HomeTeam).Include(p => p.Referee1).Include(p => p.Referee2).Include(p => p.Referee3).Include(p => p.Referee4).Include(p => p.Referee5).Include(p => p.Series);
+            var pROStats2019Context = _context.ProGame.Include(p => p.Arena).Include(p => p.AwayTeam).Include(p => p.GameStatus).Include(p => p.HomeTeam).Include(p => p.Referee1).Include(p => p.Referee2).Include(p => p.Referee3).Include(p => p.Referee4).Include(p => p.Referee5).Include(p => p.Series);
             return View(await pROStats2019Context.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace PROStats2019.Controllers
             var proGame = await _context.ProGame
                 .Include(p => p.Arena)
                 .Include(p => p.AwayTeam)
+                .Include(p => p.GameStatus)
                 .Include(p => p.HomeTeam)
                 .Include(p => p.Referee1)
                 .Include(p => p.Referee2)
@@ -57,6 +58,7 @@ namespace PROStats2019.Controllers
         {
             ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName");
             ViewData["TeamId1"] = new SelectList(_context.Team, "Id", "TeamName");
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName");
             ViewData["TeamId"] = new SelectList(_context.Team, "Id", "TeamName");
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName");
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName");
@@ -72,7 +74,7 @@ namespace PROStats2019.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,MatchNumber,MatchDateTime,ArenaId,TeamId,TeamId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3,PersonId4,SeriesId,TSMNumber,Payment,Payed")] ProGame proGame)
+        public async Task<IActionResult> Create([Bind("Id,MatchNumber,MatchDateTime,ArenaId,TeamId,TeamId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3,PersonId4,SeriesId,TSMNumber,Payment,Payed,GameStatusId")] ProGame proGame)
         {
             if (ModelState.IsValid)
             {
@@ -82,6 +84,7 @@ namespace PROStats2019.Controllers
             }
             ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", proGame.ArenaId);
             ViewData["TeamId1"] = new SelectList(_context.Team, "Id", "TeamName", proGame.TeamId1);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", proGame.GameStatusId);
             ViewData["TeamId"] = new SelectList(_context.Team, "Id", "TeamName", proGame.TeamId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", proGame.PersonId);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", proGame.PersonId1);
@@ -107,6 +110,7 @@ namespace PROStats2019.Controllers
             }
             ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", proGame.ArenaId);
             ViewData["TeamId1"] = new SelectList(_context.Team, "Id", "TeamName", proGame.TeamId1);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", proGame.GameStatusId);
             ViewData["TeamId"] = new SelectList(_context.Team, "Id", "TeamName", proGame.TeamId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", proGame.PersonId);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", proGame.PersonId1);
@@ -122,7 +126,7 @@ namespace PROStats2019.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,MatchNumber,MatchDateTime,ArenaId,TeamId,TeamId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3,PersonId4,SeriesId,TSMNumber,Payment,Payed")] ProGame proGame)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,MatchNumber,MatchDateTime,ArenaId,TeamId,TeamId1,HomeTeamScore,AwayTeamScore,PersonId,PersonId1,PersonId2,PersonId3,PersonId4,SeriesId,TSMNumber,Payment,Payed,GameStatusId")] ProGame proGame)
         {
             if (id != proGame.Id)
             {
@@ -151,6 +155,7 @@ namespace PROStats2019.Controllers
             }
             ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", proGame.ArenaId);
             ViewData["TeamId1"] = new SelectList(_context.Team, "Id", "TeamName", proGame.TeamId1);
+            ViewData["GameStatusId"] = new SelectList(_context.GameStatus, "Id", "GameStatusName", proGame.GameStatusId);
             ViewData["TeamId"] = new SelectList(_context.Team, "Id", "TeamName", proGame.TeamId);
             ViewData["PersonId"] = new SelectList(_context.Person, "Id", "FullName", proGame.PersonId);
             ViewData["PersonId1"] = new SelectList(_context.Person, "Id", "FullName", proGame.PersonId1);
@@ -172,6 +177,7 @@ namespace PROStats2019.Controllers
             var proGame = await _context.ProGame
                 .Include(p => p.Arena)
                 .Include(p => p.AwayTeam)
+                .Include(p => p.GameStatus)
                 .Include(p => p.HomeTeam)
                 .Include(p => p.Referee1)
                 .Include(p => p.Referee2)

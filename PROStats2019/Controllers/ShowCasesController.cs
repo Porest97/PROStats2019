@@ -56,15 +56,15 @@ namespace PROStats2019.Controllers
         // GET: ShowCases/Create
         public IActionResult Create()
         {
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "Id");
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id");
-            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "Id");
-            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "Id");
-            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "Id");
-            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "Id");
-            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "Id");
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "Id");
-            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "Id");
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName");
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName");
+            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "FullName");
+            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "FullName");
+            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "FullName");
+            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "FullName");
+            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "FullName");
+            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "LocationString");
+            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "FullName");
             return View();
         }
 
@@ -81,15 +81,15 @@ namespace PROStats2019.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "Id", showCase.SeriesId);
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id", showCase.ArenaId);
-            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId);
-            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId1);
-            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId2);
-            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId3);
-            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId5);
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "Id", showCase.ArenaId1);
-            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId4);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", showCase.SeriesId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", showCase.ArenaId);
+            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId);
+            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId1);
+            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId2);
+            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId3);
+            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId5);
+            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "LocationString", showCase.ArenaId1);
+            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId4);
             return View(showCase);
         }
 
@@ -106,15 +106,15 @@ namespace PROStats2019.Controllers
             {
                 return NotFound();
             }
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "Id", showCase.SeriesId);
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id", showCase.ArenaId);
-            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId);
-            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId1);
-            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId2);
-            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId3);
-            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId5);
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "Id", showCase.ArenaId1);
-            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId4);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", showCase.SeriesId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", showCase.ArenaId);
+            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId);
+            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId1);
+            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId2);
+            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId3);
+            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId5);
+            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "LocationString", showCase.ArenaId1);
+            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId4);
             return View(showCase);
         }
 
@@ -150,15 +150,15 @@ namespace PROStats2019.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "Id", showCase.SeriesId);
-            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "Id", showCase.ArenaId);
-            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId);
-            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId1);
-            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId2);
-            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId3);
-            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId5);
-            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "Id", showCase.ArenaId1);
-            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "Id", showCase.PersonId4);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName", showCase.SeriesId);
+            ViewData["ArenaId"] = new SelectList(_context.Arena, "Id", "ArenaName", showCase.ArenaId);
+            ViewData["PersonId"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId);
+            ViewData["PersonId1"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId1);
+            ViewData["PersonId2"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId2);
+            ViewData["PersonId3"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId3);
+            ViewData["PersonId5"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId5);
+            ViewData["ArenaId1"] = new SelectList(_context.Arena, "Id", "LocationString", showCase.ArenaId1);
+            ViewData["PersonId4"] = new SelectList(_context.Set<Person>(), "Id", "FullName", showCase.PersonId4);
             return View(showCase);
         }
 

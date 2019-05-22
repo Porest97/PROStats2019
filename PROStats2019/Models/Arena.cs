@@ -10,8 +10,11 @@ namespace HockeyStats2019.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Arena")]
+        [Display(Name = "Arena")]        
         public string ArenaString { get { return string.Format("{0} {1} {2}", ArenaName, "-", ArenaCounty); } }
+
+        [Display(Name = "Plats")]        
+        public string LocationString { get { return string.Format("{0} {1}", ArenaName, ArenaAddress); } }
 
         [Display(Name = "Arena")]
         public string ArenaName { get; set; }
@@ -29,7 +32,7 @@ namespace HockeyStats2019.Models
         [Display(Name = "Land")]
         public string ArenaCountry { get; set; }
 
-        [Display(Name = "Adress")]
+        [Display(Name = "Adress")]        
         public string ArenaAddress { get { return string.Format("{0} {1} {2} {3}",ArenaStreetAddress, ArenaZipCode, ArenaCounty, ArenaCountry); } }
     }
 }
