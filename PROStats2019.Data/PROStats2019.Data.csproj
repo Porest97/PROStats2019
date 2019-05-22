@@ -16,4 +16,14 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0-preview5-19264-04" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\PROStats2019\PROStats2019.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
 </Project>

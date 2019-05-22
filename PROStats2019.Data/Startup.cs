@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using PROStats2019.Data.Models;
 
 namespace PROStats2019.Data
 {
@@ -33,6 +35,9 @@ namespace PROStats2019.Data
             services.AddControllersWithViews()
                 .AddNewtonsoftJson();
             services.AddRazorPages();
+
+            services.AddDbContext<PROStats2019.Models.PROStats2019Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PROStats2019Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
