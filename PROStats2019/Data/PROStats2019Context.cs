@@ -52,5 +52,31 @@ namespace PROStats2019.Models
         public DbSet<PROStats2019.Models.PaymentPost> PaymentPost { get; set; }
 
         public DbSet<PROStats2019.Models.Sport> Sport { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2012> PROGames2012 { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2013> PROGames2013 { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2014> PROGames2014 { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2015> PROGames2015 { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2016> PROGames2016 { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2017> PROGames2017 { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2018> PROGames2018 { get; set; }
+
+        public DbSet<PROStats2019.Models.PROModels.PROGames2019> PROGames2019 { get; set; }
+
+        public DbSet<PROStats2019.Models.Location> Location { get; set; }
+
+        public DbSet<PROStats2019.Models.Workout> Workout { get; set; }
+
+        public DbSet<PROStats2019.Models.Country> Country { get; set; }
+
+        
+
+
     }
 }

@@ -25,19 +25,66 @@ namespace PROStats2019.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("ArenaCategoryId");
+
                     b.Property<string>("ArenaCountry");
 
                     b.Property<string>("ArenaCounty");
 
                     b.Property<string>("ArenaName");
 
+                    b.Property<string>("ArenaNumberTSM");
+
                     b.Property<string>("ArenaStreetAddress");
 
                     b.Property<string>("ArenaZipCode");
 
+                    b.Property<string>("AudienceCapacity");
+
+                    b.Property<string>("Bench");
+
+                    b.Property<string>("BuildingYear");
+
+                    b.Property<string>("Chair");
+
+                    b.Property<string>("DisabledSeats");
+
+                    b.Property<string>("LatestChecked");
+
+                    b.Property<string>("LatestInspection");
+
+                    b.Property<string>("PhoneNumber");
+
+                    b.Property<string>("PhoneNumber1");
+
+                    b.Property<string>("RebuildingYear");
+
+                    b.Property<int?>("RefereeDistrictId");
+
+                    b.Property<string>("SoftChair");
+
+                    b.Property<string>("Standing");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("ArenaCategoryId");
+
+                    b.HasIndex("RefereeDistrictId");
+
                     b.ToTable("Arena");
+                });
+
+            modelBuilder.Entity("HockeyStats2019.Models.ArenaCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ArenaCategoryName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ArenaCategory");
                 });
 
             modelBuilder.Entity("HockeyStats2019.Models.Coach", b =>
@@ -131,6 +178,8 @@ namespace PROStats2019.Migrations
                     b.Property<string>("LastName");
 
                     b.Property<string>("PhoneNumber");
+
+                    b.Property<string>("PhoneNumber1");
 
                     b.Property<int?>("PlayerId");
 
@@ -388,6 +437,19 @@ namespace PROStats2019.Migrations
                     b.ToTable("Club");
                 });
 
+            modelBuilder.Entity("PROStats2019.Models.Country", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CountryName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Country");
+                });
+
             modelBuilder.Entity("PROStats2019.Models.GameStatus", b =>
                 {
                     b.Property<int>("Id")
@@ -399,6 +461,539 @@ namespace PROStats2019.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("GameStatus");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.Location", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("LocationName");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Location");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2012", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2012");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2013", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2013");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2014", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2014");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2015", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2015");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2016", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2016");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2017", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2017");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2018", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2018");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2019", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("ArenaId");
+
+                    b.Property<int?>("AwayTeamScore");
+
+                    b.Property<int?>("GameStatusId");
+
+                    b.Property<int?>("HomeTeamScore");
+
+                    b.Property<DateTime>("MatchDateTime");
+
+                    b.Property<int?>("MatchNumber");
+
+                    b.Property<bool>("Payed");
+
+                    b.Property<int?>("Payment");
+
+                    b.Property<int?>("PersonId");
+
+                    b.Property<int?>("PersonId1");
+
+                    b.Property<int?>("PersonId2");
+
+                    b.Property<int?>("PersonId3");
+
+                    b.Property<int?>("PersonId4");
+
+                    b.Property<int?>("SeriesId");
+
+                    b.Property<int?>("TSMNumber");
+
+                    b.Property<int?>("TeamId");
+
+                    b.Property<int?>("TeamId1");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArenaId");
+
+                    b.HasIndex("GameStatusId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("PersonId1");
+
+                    b.HasIndex("PersonId2");
+
+                    b.HasIndex("PersonId3");
+
+                    b.HasIndex("PersonId4");
+
+                    b.HasIndex("SeriesId");
+
+                    b.HasIndex("TeamId");
+
+                    b.HasIndex("TeamId1");
+
+                    b.ToTable("PROGames2019");
                 });
 
             modelBuilder.Entity("PROStats2019.Models.PaymentPost", b =>
@@ -560,6 +1155,44 @@ namespace PROStats2019.Migrations
                     b.ToTable("Sport");
                 });
 
+            modelBuilder.Entity("PROStats2019.Models.Workout", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double?>("Distance");
+
+                    b.Property<decimal>("Duration");
+
+                    b.Property<DateTime>("EndDateTime");
+
+                    b.Property<int?>("LocationId");
+
+                    b.Property<int?>("SportId");
+
+                    b.Property<DateTime>("StartDateTime");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LocationId");
+
+                    b.HasIndex("SportId");
+
+                    b.ToTable("Workout");
+                });
+
+            modelBuilder.Entity("HockeyStats2019.Models.Arena", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.ArenaCategory", "ArenaCategory")
+                        .WithMany()
+                        .HasForeignKey("ArenaCategoryId");
+
+                    b.HasOne("HockeyStats2019.Models.RefereeDistrict", "RefereeDistrict")
+                        .WithMany()
+                        .HasForeignKey("RefereeDistrictId");
+                });
+
             modelBuilder.Entity("HockeyStats2019.Models.Game", b =>
                 {
                     b.HasOne("HockeyStats2019.Models.Arena", "Arena")
@@ -692,6 +1325,350 @@ namespace PROStats2019.Migrations
                         .HasForeignKey("PersonId2");
                 });
 
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2012", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2013", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2014", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2015", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2016", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2017", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2018", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.PROModels.PROGames2019", b =>
+                {
+                    b.HasOne("HockeyStats2019.Models.Arena", "Arena")
+                        .WithMany()
+                        .HasForeignKey("ArenaId");
+
+                    b.HasOne("PROStats2019.Models.GameStatus", "GameStatus")
+                        .WithMany()
+                        .HasForeignKey("GameStatusId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee1")
+                        .WithMany()
+                        .HasForeignKey("PersonId");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee2")
+                        .WithMany()
+                        .HasForeignKey("PersonId1");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee3")
+                        .WithMany()
+                        .HasForeignKey("PersonId2");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee4")
+                        .WithMany()
+                        .HasForeignKey("PersonId3");
+
+                    b.HasOne("HockeyStats2019.Models.Person", "Referee5")
+                        .WithMany()
+                        .HasForeignKey("PersonId4");
+
+                    b.HasOne("HockeyStats2019.Models.Series", "Series")
+                        .WithMany()
+                        .HasForeignKey("SeriesId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId");
+
+                    b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("TeamId1");
+                });
+
             modelBuilder.Entity("PROStats2019.Models.PaymentPost", b =>
                 {
                     b.HasOne("HockeyStats2019.Models.Game", "Game")
@@ -756,6 +1733,17 @@ namespace PROStats2019.Migrations
                     b.HasOne("HockeyStats2019.Models.Team", "AwayTeam")
                         .WithMany()
                         .HasForeignKey("TeamId1");
+                });
+
+            modelBuilder.Entity("PROStats2019.Models.Workout", b =>
+                {
+                    b.HasOne("PROStats2019.Models.Location", "Location")
+                        .WithMany()
+                        .HasForeignKey("LocationId");
+
+                    b.HasOne("PROStats2019.Models.Sport", "Sport")
+                        .WithMany()
+                        .HasForeignKey("SportId");
                 });
 #pragma warning restore 612, 618
         }

@@ -53,13 +53,18 @@
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="PhoneNumber1" class="control-label"></label>
+                <input asp-for="PhoneNumber1" class="form-control" />
+                <span asp-validation-for="PhoneNumber1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="ClubId" class="control-label"></label>
-                <select asp-for="ClubId" class ="form-control" asp-items="ViewBag.ClubId"></select>
+                <select asp-for="ClubId" class="form-control" asp-items="ViewBag.ClubId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RefereeNumber" class="control-label"></label>
@@ -68,35 +73,35 @@
             </div>
             <div class="form-group">
                 <label asp-for="RefereeTypeId" class="control-label"></label>
-                <select asp-for="RefereeTypeId" class ="form-control" asp-items="ViewBag.RefereeTypeId"></select>
+                <select asp-for="RefereeTypeId" class="form-control" asp-items="ViewBag.RefereeTypeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RefereeCategoryId" class="control-label"></label>
-                <select asp-for="RefereeCategoryId" class ="form-control" asp-items="ViewBag.RefereeCategoryId"></select>
+                <select asp-for="RefereeCategoryId" class="form-control" asp-items="ViewBag.RefereeCategoryId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RefereeCategoryTypeId" class="control-label"></label>
-                <select asp-for="RefereeCategoryTypeId" class ="form-control" asp-items="ViewBag.RefereeCategoryTypeId"></select>
+                <select asp-for="RefereeCategoryTypeId" class="form-control" asp-items="ViewBag.RefereeCategoryTypeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RefereeDistrictId" class="control-label"></label>
-                <select asp-for="RefereeDistrictId" class ="form-control" asp-items="ViewBag.RefereeDistrictId"></select>
+                <select asp-for="RefereeDistrictId" class="form-control" asp-items="ViewBag.RefereeDistrictId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="RefereeId" class="control-label"></label>
-                <select asp-for="RefereeId" class ="form-control" asp-items="ViewBag.RefereeId"></select>
+                <select asp-for="RefereeId" class="form-control" asp-items="ViewBag.RefereeId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="CoachId" class="control-label"></label>
-                <select asp-for="CoachId" class ="form-control" asp-items="ViewBag.CoachId"></select>
+                <select asp-for="CoachId" class="form-control" asp-items="ViewBag.CoachId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="PlayerId" class="control-label"></label>
-                <select asp-for="PlayerId" class ="form-control" asp-items="ViewBag.PlayerId"></select>
+                <select asp-for="PlayerId" class="form-control" asp-items="ViewBag.PlayerId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="StaffId" class="control-label"></label>
-                <select asp-for="StaffId" class ="form-control" asp-items="ViewBag.StaffId"></select>
+                <select asp-for="StaffId" class="form-control" asp-items="ViewBag.StaffId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

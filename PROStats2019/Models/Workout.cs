@@ -25,7 +25,7 @@ namespace PROStats2019.Models
         [ForeignKey("LocationId")]
         public Location Location { get; set; }
 
-        [Display(Name = "Distans")]
+        [Display(Name = "Distans i Km")]
         public double? Distance { get; set; }
 
         [Display(Name = "Starttid")]
@@ -34,9 +34,9 @@ namespace PROStats2019.Models
         [Display(Name = "Sluttid")]
         public DateTime EndDateTime { get; set; }
 
-        [Display(Name ="Tid")]
-        [DataType(DataType.Duration)]
-        public DateTime Duration { get; set; }
+        [Display(Name = "Tid H,xx")]
+        
+        public decimal Duration { get; set; }
 
     }
 }

@@ -39,6 +39,10 @@ namespace PROStats2019.Controllers
         {
             return View();
         }
+        public IActionResult Workouts()
+        {
+            return View();
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
