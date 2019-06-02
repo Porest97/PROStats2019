@@ -75,6 +75,26 @@ namespace PROStats2019.Models
 
         public DbSet<PROStats2019.Models.Country> Country { get; set; }
 
+        public DbSet<PROStats2019.Models.Tournament> Tournament { get; set; }
+
+        public DbSet<PROStats2019.Models.MatchLength> MatchLength { get; set; }
+
+        public DbSet<PROStats2019.Models.MatchReporting> MatchReporting { get; set; }
+
+        public DbSet<PROStats2019.Models.MatchTime> MatchTime { get; set; }
+
+        public DbSet<PROStats2019.Models.RefereeLevel> RefereeLevel { get; set; }
+
+        public DbSet<PROStats2019.Models.TableSystem> TableSystem { get; set; }
+
+        public DbSet<PROStats2019.Models.TeamNotification> TeamNotification { get; set; }
+
+        public DbSet<PROStats2019.Models.TeamOfficial> TeamOfficial { get; set; }
+
+        public DbSet<PROStats2019.Models.TeamRegister> TeamRegister { get; set; }
+
+        public DbSet<PROStats2019.Models.TournamentPhase> TournamentPhase { get; set; }
+
         
 
 

@@ -1,0 +1,107 @@
+﻿@model IEnumerable<PROStats2019.Models.Tournament>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.District)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TournamentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TournamentPhase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeriesNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SeriesId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchLength)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchReporting)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TableSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RefereeLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamNotification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamRegistration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamOfficial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MatchTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.District.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TournamentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TournamentPhase.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeriesNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeriesId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchLength.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchReporting.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TableSystem.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereeLevel.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamNotification.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamRegistration.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamOfficial.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MatchTime.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
