@@ -38,8 +38,8 @@ namespace PROStats2019.Models
         //Series (SeriesName)
         [Display(Name = "Serienamn")]
         public int? SeriesId { get; set; }
-        [Display(Name = "Turn.Fas")]
-        [ForeignKey("Serienamn")]
+        [Display(Name = "Serienamn")]
+        [ForeignKey("SeriesId")]
         public Series Series { get; set; }
 
         //MatchLength
@@ -64,9 +64,9 @@ namespace PROStats2019.Models
         public TableSystem TableSystem { get; set; }
 
         // RefereeLevel
-        [Display(Name = "TabellSystem")]
+        [Display(Name = "Domarnivå")]
         public int? RefereeLevelId { get; set; }
-        [Display(Name = "Tabellsystem")]
+        [Display(Name = "Domarnivå")]
         [ForeignKey("RefereeLevelId")]
         public RefereeLevel RefereeLevel { get; set; }
 
@@ -82,7 +82,7 @@ namespace PROStats2019.Models
         public int? TeamRegistrationId { get; set; }
         [Display(Name = "Lagregistrering")]
         [ForeignKey("TeamRegistrationId")]
-        public RefereeLevel TeamRegistration { get; set; }
+        public TeamRegistration TeamRegistration { get; set; }
 
         //TeamOfficial
         [Display(Name = "Lagfuntionärer")]

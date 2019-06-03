@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROStats2019.Models;
 
 namespace PROStats2019.Migrations
 {
     [DbContext(typeof(PROStats2019Context))]
-    partial class PROStats2019ContextModelSnapshot : ModelSnapshot
+    [Migration("20190603090554_TeamRegistrationImplemented")]
+    partial class TeamRegistrationImplemented
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1288,6 +1290,8 @@ namespace PROStats2019.Migrations
 
                     b.Property<int?>("RefereeLevelId");
 
+                    b.Property<int?>("Serienamn");
+
                     b.Property<int?>("SeriesId");
 
                     b.Property<int?>("SeriesNumber");
@@ -1316,7 +1320,7 @@ namespace PROStats2019.Migrations
 
                     b.HasIndex("RefereeLevelId");
 
-                    b.HasIndex("SeriesId");
+                    b.HasIndex("Serienamn");
 
                     b.HasIndex("TableSystemId");
 
@@ -1948,7 +1952,7 @@ namespace PROStats2019.Migrations
 
                     b.HasOne("HockeyStats2019.Models.Series", "Series")
                         .WithMany()
-                        .HasForeignKey("SeriesId");
+                        .HasForeignKey("Serienamn");
 
                     b.HasOne("PROStats2019.Models.TableSystem", "TableSystem")
                         .WithMany()

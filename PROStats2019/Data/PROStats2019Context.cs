@@ -95,6 +95,8 @@ namespace PROStats2019.Models
 
         public DbSet<PROStats2019.Models.TournamentPhase> TournamentPhase { get; set; }
 
+        public DbSet<PROStats2019.Models.TeamRegistration> TeamRegistration { get; set; }
+
         
 
 

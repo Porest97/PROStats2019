@@ -21,7 +21,7 @@ namespace PROStats2019.Controllers
         // GET: Tournaments
         public async Task<IActionResult> Index()
         {
-            var pROStats2019Context = _context.Tournament.Include(t => t.District).Include(t => t.MatchLength).Include(t => t.MatchReporting).Include(t => t.MatchTime).Include(t => t.RefereeLevel).Include(t => t.TableSystem).Include(t => t.TeamNotification).Include(t => t.TeamOfficial).Include(t => t.TeamRegistration).Include(t => t.TournamentPhase);
+            var pROStats2019Context = _context.Tournament.Include(t => t.District).Include(t => t.MatchLength).Include(t => t.MatchReporting).Include(t => t.MatchTime).Include(t => t.RefereeLevel).Include(t => t.Series).Include(t => t.TableSystem).Include(t => t.TeamNotification).Include(t => t.TeamOfficial).Include(t => t.TeamRegistration).Include(t => t.TournamentPhase);
             return View(await pROStats2019Context.ToListAsync());
         }
 
@@ -39,6 +39,7 @@ namespace PROStats2019.Controllers
                 .Include(t => t.MatchReporting)
                 .Include(t => t.MatchTime)
                 .Include(t => t.RefereeLevel)
+                .Include(t => t.Series)
                 .Include(t => t.TableSystem)
                 .Include(t => t.TeamNotification)
                 .Include(t => t.TeamOfficial)
@@ -56,16 +57,17 @@ namespace PROStats2019.Controllers
         // GET: Tournaments/Create
         public IActionResult Create()
         {
-            ViewData["RefereeDistrictId"] = new SelectList(_context.RefereeDistrict, "Id", "Id");
-            ViewData["MatchLengthId"] = new SelectList(_context.Set<MatchLength>(), "Id", "Id");
-            ViewData["MatchReportingId"] = new SelectList(_context.Set<MatchReporting>(), "Id", "Id");
-            ViewData["MatchTimeId"] = new SelectList(_context.Set<MatchTime>(), "Id", "Id");
-            ViewData["RefereeLevelId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id");
-            ViewData["TableSystemId"] = new SelectList(_context.Set<TableSystem>(), "Id", "Id");
-            ViewData["TeamNotificationId"] = new SelectList(_context.Set<TeamNotification>(), "Id", "Id");
-            ViewData["TeamOfficialId"] = new SelectList(_context.Set<TeamOfficial>(), "Id", "Id");
-            ViewData["TeamRegistrationId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id");
-            ViewData["TournamentPhaseId"] = new SelectList(_context.Set<TournamentPhase>(), "Id", "Id");
+            ViewData["RefereeDistrictId"] = new SelectList(_context.RefereeDistrict, "Id", "RefereeDistrictName");
+            ViewData["MatchLengthId"] = new SelectList(_context.MatchLength, "Id", "MatchLengthName");
+            ViewData["MatchReportingId"] = new SelectList(_context.MatchReporting, "Id", "MatchReportingName");
+            ViewData["MatchTimeId"] = new SelectList(_context.MatchTime, "Id", "MatchTimeName");
+            ViewData["RefereeLevelId"] = new SelectList(_context.RefereeLevel, "Id", "RefereeLevelName");
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "SeriesName");
+            ViewData["TableSystemId"] = new SelectList(_context.TableSystem, "Id", "TableSystemName");
+            ViewData["TeamNotificationId"] = new SelectList(_context.TeamNotification, "Id", "TeamNotificationName");
+            ViewData["TeamOfficialId"] = new SelectList(_context.TeamOfficial, "Id", "TeamOfficialName");
+            ViewData["TeamRegistrationId"] = new SelectList(_context.TeamRegistration, "Id", "TeamRegistrationName");
+            ViewData["TournamentPhaseId"] = new SelectList(_context.TournamentPhase, "Id", "TournamentPhaseName");
             return View();
         }
 
@@ -83,15 +85,16 @@ namespace PROStats2019.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RefereeDistrictId"] = new SelectList(_context.RefereeDistrict, "Id", "Id", tournament.RefereeDistrictId);
-            ViewData["MatchLengthId"] = new SelectList(_context.Set<MatchLength>(), "Id", "Id", tournament.MatchLengthId);
-            ViewData["MatchReportingId"] = new SelectList(_context.Set<MatchReporting>(), "Id", "Id", tournament.MatchReportingId);
-            ViewData["MatchTimeId"] = new SelectList(_context.Set<MatchTime>(), "Id", "Id", tournament.MatchTimeId);
-            ViewData["RefereeLevelId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id", tournament.RefereeLevelId);
-            ViewData["TableSystemId"] = new SelectList(_context.Set<TableSystem>(), "Id", "Id", tournament.TableSystemId);
-            ViewData["TeamNotificationId"] = new SelectList(_context.Set<TeamNotification>(), "Id", "Id", tournament.TeamNotificationId);
-            ViewData["TeamOfficialId"] = new SelectList(_context.Set<TeamOfficial>(), "Id", "Id", tournament.TeamOfficialId);
-            ViewData["TeamRegistrationId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id", tournament.TeamRegistrationId);
-            ViewData["TournamentPhaseId"] = new SelectList(_context.Set<TournamentPhase>(), "Id", "Id", tournament.TournamentPhaseId);
+            ViewData["MatchLengthId"] = new SelectList(_context.MatchLength, "Id", "Id", tournament.MatchLengthId);
+            ViewData["MatchReportingId"] = new SelectList(_context.MatchReporting, "Id", "Id", tournament.MatchReportingId);
+            ViewData["MatchTimeId"] = new SelectList(_context.MatchTime, "Id", "Id", tournament.MatchTimeId);
+            ViewData["RefereeLevelId"] = new SelectList(_context.RefereeLevel, "Id", "Id", tournament.RefereeLevelId);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "Id", tournament.SeriesId);
+            ViewData["TableSystemId"] = new SelectList(_context.TableSystem, "Id", "Id", tournament.TableSystemId);
+            ViewData["TeamNotificationId"] = new SelectList(_context.TeamNotification, "Id", "Id", tournament.TeamNotificationId);
+            ViewData["TeamOfficialId"] = new SelectList(_context.TeamOfficial, "Id", "Id", tournament.TeamOfficialId);
+            ViewData["TeamRegistrationId"] = new SelectList(_context.TeamRegistration, "Id", "Id", tournament.TeamRegistrationId);
+            ViewData["TournamentPhaseId"] = new SelectList(_context.TournamentPhase, "Id", "Id", tournament.TournamentPhaseId);
             return View(tournament);
         }
 
@@ -109,15 +112,16 @@ namespace PROStats2019.Controllers
                 return NotFound();
             }
             ViewData["RefereeDistrictId"] = new SelectList(_context.RefereeDistrict, "Id", "Id", tournament.RefereeDistrictId);
-            ViewData["MatchLengthId"] = new SelectList(_context.Set<MatchLength>(), "Id", "Id", tournament.MatchLengthId);
-            ViewData["MatchReportingId"] = new SelectList(_context.Set<MatchReporting>(), "Id", "Id", tournament.MatchReportingId);
-            ViewData["MatchTimeId"] = new SelectList(_context.Set<MatchTime>(), "Id", "Id", tournament.MatchTimeId);
-            ViewData["RefereeLevelId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id", tournament.RefereeLevelId);
-            ViewData["TableSystemId"] = new SelectList(_context.Set<TableSystem>(), "Id", "Id", tournament.TableSystemId);
-            ViewData["TeamNotificationId"] = new SelectList(_context.Set<TeamNotification>(), "Id", "Id", tournament.TeamNotificationId);
-            ViewData["TeamOfficialId"] = new SelectList(_context.Set<TeamOfficial>(), "Id", "Id", tournament.TeamOfficialId);
-            ViewData["TeamRegistrationId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id", tournament.TeamRegistrationId);
-            ViewData["TournamentPhaseId"] = new SelectList(_context.Set<TournamentPhase>(), "Id", "Id", tournament.TournamentPhaseId);
+            ViewData["MatchLengthId"] = new SelectList(_context.MatchLength, "Id", "Id", tournament.MatchLengthId);
+            ViewData["MatchReportingId"] = new SelectList(_context.MatchReporting, "Id", "Id", tournament.MatchReportingId);
+            ViewData["MatchTimeId"] = new SelectList(_context.MatchTime, "Id", "Id", tournament.MatchTimeId);
+            ViewData["RefereeLevelId"] = new SelectList(_context.RefereeLevel, "Id", "Id", tournament.RefereeLevelId);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "Id", tournament.SeriesId);
+            ViewData["TableSystemId"] = new SelectList(_context.TableSystem, "Id", "Id", tournament.TableSystemId);
+            ViewData["TeamNotificationId"] = new SelectList(_context.TeamNotification, "Id", "Id", tournament.TeamNotificationId);
+            ViewData["TeamOfficialId"] = new SelectList(_context.TeamOfficial, "Id", "Id", tournament.TeamOfficialId);
+            ViewData["TeamRegistrationId"] = new SelectList(_context.TeamRegistration, "Id", "Id", tournament.TeamRegistrationId);
+            ViewData["TournamentPhaseId"] = new SelectList(_context.TournamentPhase, "Id", "Id", tournament.TournamentPhaseId);
             return View(tournament);
         }
 
@@ -154,15 +158,16 @@ namespace PROStats2019.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RefereeDistrictId"] = new SelectList(_context.RefereeDistrict, "Id", "Id", tournament.RefereeDistrictId);
-            ViewData["MatchLengthId"] = new SelectList(_context.Set<MatchLength>(), "Id", "Id", tournament.MatchLengthId);
-            ViewData["MatchReportingId"] = new SelectList(_context.Set<MatchReporting>(), "Id", "Id", tournament.MatchReportingId);
-            ViewData["MatchTimeId"] = new SelectList(_context.Set<MatchTime>(), "Id", "Id", tournament.MatchTimeId);
-            ViewData["RefereeLevelId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id", tournament.RefereeLevelId);
-            ViewData["TableSystemId"] = new SelectList(_context.Set<TableSystem>(), "Id", "Id", tournament.TableSystemId);
-            ViewData["TeamNotificationId"] = new SelectList(_context.Set<TeamNotification>(), "Id", "Id", tournament.TeamNotificationId);
-            ViewData["TeamOfficialId"] = new SelectList(_context.Set<TeamOfficial>(), "Id", "Id", tournament.TeamOfficialId);
-            ViewData["TeamRegistrationId"] = new SelectList(_context.Set<RefereeLevel>(), "Id", "Id", tournament.TeamRegistrationId);
-            ViewData["TournamentPhaseId"] = new SelectList(_context.Set<TournamentPhase>(), "Id", "Id", tournament.TournamentPhaseId);
+            ViewData["MatchLengthId"] = new SelectList(_context.MatchLength, "Id", "Id", tournament.MatchLengthId);
+            ViewData["MatchReportingId"] = new SelectList(_context.MatchReporting, "Id", "Id", tournament.MatchReportingId);
+            ViewData["MatchTimeId"] = new SelectList(_context.MatchTime, "Id", "Id", tournament.MatchTimeId);
+            ViewData["RefereeLevelId"] = new SelectList(_context.RefereeLevel, "Id", "Id", tournament.RefereeLevelId);
+            ViewData["SeriesId"] = new SelectList(_context.Series, "Id", "Id", tournament.SeriesId);
+            ViewData["TableSystemId"] = new SelectList(_context.TableSystem, "Id", "Id", tournament.TableSystemId);
+            ViewData["TeamNotificationId"] = new SelectList(_context.TeamNotification, "Id", "Id", tournament.TeamNotificationId);
+            ViewData["TeamOfficialId"] = new SelectList(_context.TeamOfficial, "Id", "Id", tournament.TeamOfficialId);
+            ViewData["TeamRegistrationId"] = new SelectList(_context.TeamRegistration, "Id", "Id", tournament.TeamRegistrationId);
+            ViewData["TournamentPhaseId"] = new SelectList(_context.TournamentPhase, "Id", "Id", tournament.TournamentPhaseId);
             return View(tournament);
         }
 
@@ -180,6 +185,7 @@ namespace PROStats2019.Controllers
                 .Include(t => t.MatchReporting)
                 .Include(t => t.MatchTime)
                 .Include(t => t.RefereeLevel)
+                .Include(t => t.Series)
                 .Include(t => t.TableSystem)
                 .Include(t => t.TeamNotification)
                 .Include(t => t.TeamOfficial)
