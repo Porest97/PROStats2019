@@ -12,8 +12,7 @@ namespace PROStats2019.Models
     {
         public int Id { get; set; }
 
-        [Display(Name = "Arvode")]
-        public string FeeName { get { return string.Format("{0} {1} {2}",Series.SeriesName,"-",MatchLength.MatchLengthName); } }
+        
 
         //Series (SeriesName)
         [Display(Name = "Serienamn")]
@@ -29,12 +28,12 @@ namespace PROStats2019.Models
         [ForeignKey("MatchLengthId")]
         public MatchLength MatchLength { get; set; }
 
-        [Display(Name = "Domartyp")]
-        public RefereeType RefereeType { get; set; }
-        public int? RefereeTypeId { get; set; }
-
         [Display(Name ="Belopp")]
         [DataType(DataType.Currency)]
         public decimal FeeValue { get; set; }
+
+        [Display(Name = "Domartyp")]
+        public RefereeType RefereeType { get; set; }
+        public int? RefereeTypeId { get; set; }
     }
 }

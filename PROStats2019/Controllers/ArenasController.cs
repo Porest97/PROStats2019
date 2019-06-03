@@ -19,6 +19,8 @@ namespace PROStats2019.Controllers
             _context = context;
         }
 
+
+
         // GET: Arenas
         public async Task<IActionResult> Index()
         {
