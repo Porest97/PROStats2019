@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PROStats2019.Models;
 
 namespace PROStats2019.Migrations
 {
     [DbContext(typeof(PROStats2019Context))]
-    partial class PROStats2019ContextModelSnapshot : ModelSnapshot
+    [Migration("20190603103329_RefFeesImplemented")]
+    partial class RefFeesImplemented
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1189,15 +1191,11 @@ namespace PROStats2019.Migrations
 
                     b.Property<int?>("MatchLengthId");
 
-                    b.Property<int?>("RefereeTypeId");
-
                     b.Property<int?>("SeriesId");
 
                     b.HasKey("Id");
 
                     b.HasIndex("MatchLengthId");
-
-                    b.HasIndex("RefereeTypeId");
 
                     b.HasIndex("SeriesId");
 
@@ -1954,10 +1952,6 @@ namespace PROStats2019.Migrations
                     b.HasOne("PROStats2019.Models.MatchLength", "MatchLength")
                         .WithMany()
                         .HasForeignKey("MatchLengthId");
-
-                    b.HasOne("HockeyStats2019.Models.RefereeType", "RefereeType")
-                        .WithMany()
-                        .HasForeignKey("RefereeTypeId");
 
                     b.HasOne("HockeyStats2019.Models.Series", "Series")
                         .WithMany()

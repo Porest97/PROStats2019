@@ -1,0 +1,42 @@
+﻿@model PROStats2019.Models.RefereeFee
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>RefereeFee</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SeriesId" class="control-label"></label>
+                <select asp-for="SeriesId" class ="form-control" asp-items="ViewBag.SeriesId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="MatchLengthId" class="control-label"></label>
+                <select asp-for="MatchLengthId" class ="form-control" asp-items="ViewBag.MatchLengthId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RefereeTypeId" class="control-label"></label>
+                <select asp-for="RefereeTypeId" class ="form-control" asp-items="ViewBag.RefereeTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FeeValue" class="control-label"></label>
+                <input asp-for="FeeValue" class="form-control" />
+                <span asp-validation-for="FeeValue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

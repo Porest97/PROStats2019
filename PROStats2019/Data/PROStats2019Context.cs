@@ -97,6 +97,8 @@ namespace PROStats2019.Models
 
         public DbSet<PROStats2019.Models.TeamRegistration> TeamRegistration { get; set; }
 
+        public DbSet<PROStats2019.Models.RefereeFee> RefereeFee { get; set; }
+
         
 
 
